@@ -3,7 +3,9 @@ import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <div>App</div>
+    <div><h1 className="text-3xl font-bold ">
+    Hello world!
+  </h1></div>
   );
 }
 
