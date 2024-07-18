@@ -1,11 +1,13 @@
 import React from 'react';
-import Footer from './components/Footer/Footer';
+import FinalFooter from './components/Footer/FinalFooter';
+import EventCard from './components/EventCard/EventCard';
 
 function App() {
   return (
-    <div><h1 className="text-3xl font-bold ">
-    Hello world!
-  </h1></div>
+    <div>
+  <FinalFooter/>
+  <EventCard/>
+  </div>
   );
 }
 
