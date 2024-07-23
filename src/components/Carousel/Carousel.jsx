@@ -19,15 +19,15 @@ function Carousel(){
       <Slider {...settings}>
         <div>
           <h3></h3>
-          <img src="../../../public/Carousel Images/1d2fded6-3132-4a19-8e60-36fbeb7e87ad.avif" alt="Slide 1" />
+          <img src="Carousel Images/1d2fded6-3132-4a19-8e60-36fbeb7e87ad.avif" alt="Slide 1" />
         </div>
         <div>
           <h3></h3>
-          <img src="../../../public/Carousel Images/default-city.jpg" alt="Slide 2" />
+          <img src="Carousel Images/default-city.jpg" alt="Slide 2" />
         </div>
         <div>
           <h3></h3>
-          <img src="../../../public/Carousel Images/bde999ed-0059-49c1-af44-38369a7def7d.avif"  alt="Slide 3" />
+          <img src="Carousel Images/bde999ed-0059-49c1-af44-38369a7def7d.avif"  alt="Slide 3" />
         </div>
       </Slider>
     </div>
