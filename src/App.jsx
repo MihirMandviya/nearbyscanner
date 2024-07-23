@@ -1,12 +1,17 @@
 import React from 'react';
-import FinalFooter from './components/Footer/FinalFooter';
-import EventCard from './components/EventCard/EventCard';
-
+import Footer from './components/Footer/Footer';
+import Categories from './components/Categories/Categories';
+import Carousel from './components/Carousel/Carousel';
+import FilterEvents from './components/FilterEvents/FilterEvents';
+import PopularEvents from './components/PopularEvents/PopularEvents';
 function App() {
   return (
     <div>
-  <FinalFooter/>
-  <EventCard/>
+  <Carousel/>
+   <FilterEvents/>
+   <Categories/>
+
+   <Footer/>
   </div>
   );
 }
