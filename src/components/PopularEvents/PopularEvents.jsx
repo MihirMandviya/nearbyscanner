@@ -1,66 +1,90 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import EventCard from '../EventCard/EventCard'; // Import your EventCard component
 
-const events = [
+const eventData = [
   {
-    title: "Elements Photo Shoots",
-    description: "Multiple Dates | Bengaluru",
-    price: "₹390 onwards",
-    imageUrl:
-      "https://images.unsplash.com/photo-1503443207922-dff7d54a8f40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    imageUrl: 'https://placehold.co/600x400/ff0000/ffffff?text=Event+1',
+    title: '77 Independence Day Virtual Marathon & Cyclo...',
+    dates: 'Aug 15 - 18',
+    location: 'Chennai',
+    price: 'Free',
   },
   {
-    title: "JULY 2024 CYCLING AND RUNNING MONTHLY CHALLENGE",
-    description: "Jul 01 - 31 | Bengaluru",
-    price: "Free",
-    imageUrl:
-      "https://images.unsplash.com/photo-1534161308265-e278acac2c07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    imageUrl: 'https://placehold.co/600x400/00ff00/ffffff?text=Event+2',
+    title: 'The Weekend Pool Party, Belly & Pole Dance, Ramp Show, Gam...',
+    dates: 'Aug 03 - 04',
+    location: 'Neelankarai, Chennai',
+    price: 'Free',
   },
   {
-    title: "Elements Baby",
-    description: "Daily | Bengaluru",
-    price: "₹890 onwards",
-    imageUrl:
-      "https://images.unsplash.com/photo-1507525428034-b723cf96a9ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    imageUrl: 'https://placehold.co/600x400/0000ff/ffffff?text=Event+3',
+    title: 'Mahatma 10K Run - Get Beautiful Medal by Courier',
+    dates: 'Aug 04',
+    location: 'Chennai',
+    price: '369',
   },
   {
-    title: "AWS Bangalore Meetup",
-    description: "Daily | Bangalore",
-    price: "Free",
-    imageUrl:
-      "https://images.unsplash.com/photo-1522205408452-3d8dd7ebc712?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    imageUrl: 'https://placehold.co/600x400/ffff00/000000?text=Event+4',
+    title: 'Spartan 5K Run - Challenge Yourself',
+    dates: 'Aug 04',
+    location: 'Chennai',
+    price: '369',
   },
 ];
 
-const EventCard = ({ event }) => {
-  return (
-    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-4">
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
-        <img
-          src={event.imageUrl}
-          alt={event.title}
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-4">
-          <h2 className="text-xl font-semibold mb-2">{event.title}</h2>
-          <p className="text-gray-600 text-sm mb-2">{event.description}</p>
-          <p className="text-gray-800 font-medium">{event.price}</p>
-        </div>
-      </div>
-    </div>
-  );
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 1200 },
+    items: 3,
+  },
+  desktop: {
+    breakpoint: { max: 1200, min: 900 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 900, min: 600 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 600, min: 0 },
+    items: 1,
+  },
 };
 
-const PopularEvents = () => {
+function PopularEvents() {
   return (
-    <div className="container mx-auto py-8">
-      <h2 className="text-3xl font-bold mb-4 text-center">Popular Events</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {events.map((event, index) => (
-          <EventCard key={index} event={event} />
-        ))}
-      </div>
-    </div>
+    <Carousel
+      swipeable={true}
+      draggable={true}
+      showDots={true}
+      responsive={responsive}
+      ssr={true} // means to render carousel on server-side.
+      infinite={true}
+      autoPlay={false}
+      autoPlaySpeed={1000}
+      keyBoardControl={true}
+      customTransition="all .5"
+      transitionDuration={500}
+      containerClass="carousel-container"
+      removeArrowOnDeviceType={["tablet", "mobile"]}
+      dotListClass="custom-dot-list-style"
+      itemClass="carousel-item-padding-40-px"
+    >
+      {eventData.map((event, index) => (
+        <div key={index}>
+          <EventCard
+            imageUrl={event.imageUrl}
+            title={event.title}
+            dates={event.dates}
+            location={event.location}
+            price={event.price}
+          />
+        </div>
+      ))}
+    </Carousel>
   );
-};
+}
 
 export default PopularEvents;
